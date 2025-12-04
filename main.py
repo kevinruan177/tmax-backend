@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config.database import engine
 from app.models import Usuario, Driver, Motorcycle
 from app.routes import usuario_router, auth_router, driver_router
+import os
 
 # Criar tabelas no banco
 Usuario.metadata.create_all(bind=engine)
@@ -15,13 +16,24 @@ app = FastAPI(
     version="2.0.0"
 )
 
-# Configurar CORS
+# Configurar CORS - permitir múltiplas origens
+allowed_origins = [
+    "http://localhost:5173",  # Desenvolvimento local com Vite
+    "http://localhost:3000",  # Desenvolvimento local alternativo
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:3000",
+    "https://tmax-frontend.vercel.app",  # Frontend em produção (quando estiver em deploy)
+    "https://tmax.onrender.com",  # Frontend em Render (quando estiver em deploy)
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=allowed_origins if os.getenv("ENVIRONMENT") == "production" else ["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
+    max_age=3600,
 )
 
 # Incluir rotas
