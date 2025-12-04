@@ -1,0 +1,101 @@
+# Ambiente Virtual
+venv/
+env/
+ENV/
+.venv
+
+# Banco de Dados
+*.db
+*.sqlite
+*.sqlite3
+tmax.db
+
+# Arquivos Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Variáveis de Ambiente
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Temporários
+*.tmp
+*.temp
+.cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+.DS_Store
+Thumbs.db
+*.orig
+
+# Imagens e uploads
+uploads/
+static/images/
+media/
+
+# Testes
+.tox/
+.hypothesis/
+.pytest_cache/
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Extensões de IDE
+.pylintrc
+.flake8
+
+# Node (para frontend se necessário)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Documentação gerada
+site/
+docs/_build/
+
+# Arquivos de lock (opcional - descomente se quiser)
+# poetry.lock
+# Pipfile.lock
